@@ -94,7 +94,39 @@
 					<p>The application running in your pod should not have any more privileges than it needs but not less than is necessary to function</p>
 				</section>
 
-			</section>
+				<section>
+					<h4>Run As Non-Root</h4>
+					<p>Whenever your application does not need to run as root, run the application as a different user</p>
+					<pre><code>
+securityContext:
+	runAsNonRoot: true
+					</code></pre>
+				</section>
+
+				<section>
+					<h4>Read Only Root Filesystem</h4>
+					<pre><code>
+securityContext:
+	readOnlyRootFilesystem: true
+volumeMounts:
+	- name: proxy-config
+		mountPath: /etc/nginx/conf.d
+	- name: nginx-run
+		mountPath: /var/run
+	- name: nginx-cache
+		mountPath: /var/cache/nginx
+volumes:
+- name: proxy-config
+	configMap:
+		name: proxy
+- name: nginx-run
+	emptyDir: {}
+- name: nginx-cache
+	emptyDir: {}
+					</code></pre>
+				</section>
+
+			</section><!-- Pod Security -->
 
 			<section>
 				<section>
