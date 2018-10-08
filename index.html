@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>K8s Application Lifecycle</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
@@ -24,8 +24,82 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<section>
+						<h4>Kubernetes Application Lifecycle</h4>
+					</section>
+
+					<section>
+					Edmund Ochieng<br />
+					Cloud Engineer<br />
+					Rackspace Managed Google Cloud<br />
+				</section>
+				</section><!-- First slide -->
+
+				<section>
+					<h4>Topics</h4>
+					<ul>
+						<li>What is Kubernetes?</li>
+						<li>Exposing Applications</li>
+						<li>Designing Microservices</li>
+						<li>Microservice interdependencies</li>
+						<li>CI/CD</li>
+						<li>Securing Microservices</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h4>What is Kubernetes?</h4>
+						The Building Blocks
+					</section>
+
+					<section>
+						<h4>Containers vs Pods</h4>
+						<ul>
+							<li>A container packages an application and necessary libraries</li>
+							<li>A pod may contain one or more containers</li>
+						</ul>
+					</section>
+				</section><!-- Kubernetes introduction -->
+
+				<section>
+				<section>
+					<h4>Communication between/with Microservices</h4>
+				</section>
+				<section>
+					<h4>MetalLB</h4>
+					<ul>
+						<li>Kubernetes does not ship with an implementation of network LBs for bare metal clusters</li>
+						<li>But glue code which creates a Load balancer in the cloud provider environment</li>
+					</ul>
+				</section>
+
+			</section>
+
+			<section>
+				<section>
+					<h4>CI/CD</h4>
+					<ul>
+						<li>Spinnaker</li>
+						<li>Jenkins /Jenkins X</li>
+					</ul>
+				</section>
+
+				<section>
+					<h4>Automated Image Builds</h4>
+					<ul>
+					<li>Setup automated image build to trigger on commiting code to branch or on creation of new tag.</li>
+					<li>The feature shows to be supported in both Docker Hub and GCR. However, was unsuccessful in Docker Hub</li>
+				</ul>
+				</section>
+
+				<section>
+					<h4>Spinnaker</h4>
+					Spinnaker is a multi-cloud continuos delivery platform for releasing software with high velocity and confidence
+				</section>
+			</section>
+
 			</div>
 		</div>
 
