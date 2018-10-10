@@ -25,11 +25,12 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				
+
 					<section id="fragments">
 						<h4>Kubernetes Application Lifecycle</h4>
 						<div class="fragment">
 							Edmund Ochieng<br />
+							Cloud Engineer<br />
 						  Rackspace Managed Google Cloud
 					</div>
 				</section><!-- First slide -->
@@ -84,6 +85,7 @@
 					<ul>
 						<li>Kubernetes does not ship with an implementation of network LBs for bare metal clusters</li>
 						<li>But glue code which creates a Load balancer in the cloud provider environment</li>
+						<li>Supports Layer 2(ARP/NDP for IPv6) or BGP to announce IP assignment</li>
 					</ul>
 				</section>
 			</section>
@@ -97,6 +99,9 @@
 				<section>
 					<h4>Run As Non-Root</h4>
 					<p>Whenever your application does not need to run as root, run the application as a different user</p>
+					<ul>
+						<li>Docker image needs to be built to run as non-root user</li>
+					</ul>
 					<pre><code>
 securityContext:
 	runAsNonRoot: true
@@ -130,13 +135,22 @@ volumes:
 
 			<section>
 				<section>
-					<h4>CI/CD</h4>
+					<h4>The Lifecycle</h4>
 					<ul>
-						<li>Source code repository</li>
+						<li>Source code management</li>
 						<li>Container Registry</li>
 						<li>Jenkins/Jenkins X</li>
 						<li>Spinnaker</li>
 					</ul>
+				</section>
+
+				<section>
+					<h4>Source management</h4>
+					<ol>
+						<li>Editor</li>
+						<li>bumpversion</li>
+						<li>Github/Bitbucket</li>
+					</ol>
 				</section>
 
 				<section>
@@ -151,6 +165,14 @@ volumes:
 					<h4>Spinnaker</h4>
 					Spinnaker is a multi-cloud continuos delivery platform for releasing software with high velocity and confidence
 				</section>
+			</section>
+
+			<section>
+				<h4>References</h4>
+				<ul>
+					<li><a href="https://metallb.universe.tf/">https://metallb.universe.tf/</a></li>
+					<li><a href="https://kubernetes.io/docs/concepts/policy/pod-security-policy/">https://kubernetes.io/docs/concepts/policy/pod-security-policy/</a></li>
+				</ul>
 			</section>
 
 			</div>
